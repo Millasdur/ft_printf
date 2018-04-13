@@ -6,14 +6,19 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/12 13:33:26 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/13 15:42:55 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
+#include <stdio.h>
 
 int main(void)
 {
-	ft_printf("bonjour\n");
+	int i = 128;
+	char *str = "bonjour";
+
+	printf("i=%d\n", i);
+	ft_printf("str:|%s| |%s|\n", "bonjour", "toto");
 	return (0);
 }
