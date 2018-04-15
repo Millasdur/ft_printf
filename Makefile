@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/12 13:21:57 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/15 16:11:52 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_isdigit.c\
 		   ft_isprint.c\
 		   ft_itoa.c\
+		   ft_itoa_base.c\
 		   ft_lstadd.c\
 		   ft_lstaddlast.c\
 		   ft_lstdel.c\

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:22:58 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/14 15:49:42 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/15 16:13:29 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_function	g_function[] =
 {
 	{'s',		&ft_string},
 	{'d',		&ft_int},
-	{'f',		&ft_float},
+	{'o',		&ft_octal},
 	{0,		NULL}
 };
 
@@ -40,12 +40,15 @@ int			ft_int(va_list *arg)
 	return (ft_strlen(res));
 }
 
-int			ft_float(va_list *arg)
+int			ft_octal(va_list *arg)
 {
-	float	nb;
+	int		nb;
 	char	*res;
 
-
+	nb = va_arg(*arg, int);
+	res = ft_itoa_base(nb, 8);
+	ft_putstr(res);
+	return (ft_strlen(res));
 }
 
 int ft_printf(char *str, ...)
