@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 19:00:43 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/16 19:20:51 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ char	*handle_hash(char *src, t_opt opt, int type)
 	tmp = src;
 	if (opt.flags & HASH)
 	{
-		if (type == OCT && !ft_strequ(src, "0"))
+		if (type == OCT && ft_atoi(src) == 0)
 			tmp = ft_strjoin("0", src);
-		else if (type == OCT && ft_strequ(src, "0"))
+		else if (type == OCT && ft_atoi(src) != 0)
 			return (src);
-		else if (type == HEX && ft_strequ(src, "0"))
+		else if (type == HEX && ft_atoi(src) == 0)
 			return (src);
 		else if (type == HEX)
 			tmp = ft_strjoin("0x", src);
-		else if (type == MHEX && ft_strequ(src, "0"))
+		else if (type == MHEX && ft_atoi(src) == 0)
 			return (src);
 		else if (type == MHEX)
 			tmp = ft_strjoin("0X", src);
@@ -85,7 +85,7 @@ char	*handle_width(char *src, t_opt opt)
 char	*handle_number_flag(char *src, t_opt opt, int type)
 {
 	src = handle_preci(src, opt.preci);
-	src = handle_hash(src, opt, type);
 	src = handle_width(src, opt);
+	src = handle_hash(src, opt, type);
 	return (src);
 }
