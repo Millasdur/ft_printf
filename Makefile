@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/15 16:11:52 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/16 18:09:25 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,16 @@ CC = gcc
 AR = ar rc
 
 ### FT_PRINTF ###
-PRINTF_NAME = ft_printf.c
+PRINTF_NAME = ft_printf.c		\
+			  ft_converter.c	\
+			  ft_number.c		\
+			  ft_get_attr.c		\
+			  ft_padding.c		\
+			  ft_flag.c			
 PRINTF_PATH = ft_printf/
 SRC = $(addprefix $(PRINTF_PATH), $(PRINTF_NAME))
 
-### LISTS ###
+### LIBFT ###
 LIB_NAME = ft_putchar.c\
 		   ft_epur.c\
 		   ft_puterr.c\
@@ -83,6 +88,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_striter.c\
 		   ft_striteri.c\
 		   ft_strjoin.c\
+		   ft_strjoindel.c\
 		   ft_strlcat.c\
 		   ft_strlen.c\
 		   ft_strmap.c\
@@ -99,6 +105,9 @@ LIB_NAME = ft_putchar.c\
 		   ft_strsub.c\
 		   ft_strtrim.c\
 		   ft_tolower.c\
+		   ft_lowercase.c\
+		   ft_uppercase.c\
+		   ft_abs.c\
 		   ft_toupper.c
 LIB_PATH = libft/
 SRC += $(addprefix $(LIB_PATH), $(LIB_NAME))
@@ -109,7 +118,7 @@ SRCS = $(addprefix $(PATHSRC), $(SRC))
 OBJ = $(SRCS:.c=.o)
 
 ### INCLUDES ###
-LIBINCLUDES = includes/
+LIBINCLUDES = include/
 LIBINC = -I$(LIBINCLUDES)
 LFLAGS = -Wall -Wextra
 

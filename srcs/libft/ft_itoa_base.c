@@ -6,13 +6,13 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 16:03:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/15 16:11:34 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/16 18:40:10 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int nb_n(int value, int base)
+int nb_n(long value, int base)
 {
 	int i;
 
@@ -27,20 +27,13 @@ int nb_n(int value, int base)
 	return (i);
 }
 
-int ft_abs(int nb)
-{
-	if (nb < 0)
-		return (-nb);
-	return (nb);
-}
-
-char *ft_itoa_base(int value, int base)
+char *ft_itoa_base(long value, int base)
 {
 	int vv;
 	char *bb;
 	char *res;
 
-	bb = "0123456789ABCEDF";
+	bb = "0123456789ABCDEF";
 	if (value == 0)
 		return (ft_strdup("0"));
 	vv = nb_n(value, base);

@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_uppercase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:58:32 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/16 09:30:45 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/16 09:34:14 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+void		ft_uppercase(char **str)
 {
-	int i = 0;
-	/* float f = 1.23; */
-	/* float g = 1; */
-	/* float h = 0.123; */
-	/* int	u = 1; */
-	char *str1 = "bonjour1";
-	char *str2 = "bonjour2";
+	int		i;
 
-	printf("test=|%#8x|\n", i);
-	ft_printf("mine=|%#8x|\n", i);
-	/* ft_printf("-----\n%s-----\n", "bonjour"); */
-	
-	return (0);
+	i = 0;
+	while ((*str)[i])
+	{
+		(*str)[i] = ft_toupper((*str)[i]);
+		i++;
+	}
 }

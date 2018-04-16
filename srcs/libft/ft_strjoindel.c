@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoindel.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:58:32 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/16 17:02:02 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/16 17:06:23 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strjoindel(char *s1, char *s2)
 {
-	int i = 0;
-	/* float f = 1.23; */
-	/* float g = 1; */
-	/* float h = 0.123; */
-	/* int	u = 1; */
-	char *str1 = "bonjour1";
-	char *str2 = "bonjour2";
+	int		size;
+	char	*res;
 
-	printf("test=|%#8x|\n", i);
-	ft_printf("mine=|%#8x|\n", i);
-	/* ft_printf("-----\n%s-----\n", "bonjour"); */
-	
-	return (0);
+	if (s1 && s2)
+	{
+		size = ft_strlen(s1) + ft_strlen(s2);
+		if ((res = ft_strnew(size)))
+		{
+			res = ft_strcat(res, s1);
+			ft_strdel(&s1);
+			res = ft_strcat(res, s2);
+			return (res);
+		}
+	}
+	if (!s1 && s2)
+	{
+		res = ft_strdup(s2);
+		return (res);
+	}
+	return (NULL);
 }

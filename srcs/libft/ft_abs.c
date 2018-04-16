@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:58:32 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/16 18:08:29 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/16 18:09:09 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+int		ft_abs(int nb)
 {
-	int i = 0;
-	/* float f = 1.23; */
-	/* float g = 1; */
-	/* float h = 0.123; */
-	/* int	u = 1; */
-	char *str1 = "bonjour1";
-	char *str2 = "bonjour2";
-
-	printf("test=|%#8x|\n", i);
-	ft_printf("mine=|%#8x|\n", i);
-	/* ft_printf("-----\n%s-----\n", "bonjour"); */
-	
-	return (0);
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }
