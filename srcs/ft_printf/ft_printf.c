@@ -19,6 +19,7 @@ t_function	g_function[] =
 	{'s', &ft_string},
 	{'c', &ft_char},
 	{'d', &ft_int},
+	{'i', &ft_int},
 	{'o', &ft_octal},
 	{'x', &ft_minihexa},
 	{'X', &ft_maxihexa},
