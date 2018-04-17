@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 16:26:52 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 16:43:17 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_function	g_function[] =
 	{'o', &ft_octal},
 	{'x', &ft_minihexa},
 	{'X', &ft_maxihexa},
+	{'u', &ft_uint},
 	{'%', &ft_percent},
 	{0, NULL}
 };
@@ -64,7 +65,7 @@ int			ft_printf(char *str, ...)
 			while (!is_converter(str[i]))
 				i++;
 			if (is_converter(str[i]))
-				len = convert(&arg, str[i], str + j);
+				len += convert(&arg, str[i], str + j);
 		}
 		else
 		{

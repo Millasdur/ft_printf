@@ -6,18 +6,18 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 16:03:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:40:10 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 13:39:02 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int nb_n(long value, int base)
+int nb_n(long long int value, int base)
 {
 	int i;
 
 	i = 0;
-	if (value < 0 && base == 10)
+	if (value < 0 && (long long int)base == 10)
 		i++;
 	while (value != 0)
 	{
@@ -27,7 +27,7 @@ int nb_n(long value, int base)
 	return (i);
 }
 
-char *ft_itoa_base(long value, int base)
+char *ft_itoa_base(long long int value, int base)
 {
 	int vv;
 	char *bb;

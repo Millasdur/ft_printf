@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:03:39 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 16:07:13 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_opt	get_preci(char *str, t_opt opt)
 {
 	char	*tmp;
 
-	if ((tmp = ft_strchr(str, '.')) == NULL)
+	if ((tmp = ft_strrchr(str, '.')) == NULL)
 		return (opt);
 	if (*(tmp + 1))
 		opt.preci = ft_atoi(tmp + 1);
@@ -79,6 +79,7 @@ t_opt	get_attr(char *str)
 {
 	t_opt	opt;
 
+	opt.positive = 1;
 	opt.preci = -1;
 	opt.width = 0;
 	opt.modif = 0;

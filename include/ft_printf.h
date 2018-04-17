@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 17:36:47 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 16:43:34 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 typedef struct	s_opt
 {
+	int		positive;
 	int		preci;
 	int		width;
 	int		modif;
@@ -57,6 +58,7 @@ int		ft_printf(char *str, ...);
 int		ft_string(va_list *arg, t_opt opt);
 int		ft_percent(va_list *arg, t_opt opt);
 int		ft_int(va_list *arg, t_opt opt);
+int		ft_uint(va_list *arg, t_opt opt);
 int		ft_octal(va_list *arg, t_opt opt);
 int		ft_minihexa(va_list *arg, t_opt opt);
 int		ft_maxihexa(va_list *arg, t_opt opt);
@@ -69,7 +71,11 @@ int		convert(va_list *arg, char c, char *flags);
 t_opt	get_attr(char *str);
 t_opt	get_flag(char *str, t_opt opt);
 
-char	*handle_number_flag(char *src, t_opt opt, int type);
-char	*handle_hash(char *src, t_opt opt, int type);
+char	*handle_number_flag(char *src, t_opt *opt, int type);
+char	*handle_hash(char *src, t_opt *opt, int type);
+char	*handle_plus_space(char *src, t_opt *opt, int type);
+
+long long int	get_number(va_list *arg, t_opt opt);
+long long int	get_unumber(va_list *arg, t_opt opt);
 #endif
 

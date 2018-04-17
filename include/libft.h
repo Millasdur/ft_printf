@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 18:49:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 18:38:50 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 14:49:56 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strjoindel(char *s1, char *s2);
+char			*ft_strjoindel(char *s1, const char *s2);
 char			*ft_strjoinddel(char *s1, char *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
@@ -100,7 +100,7 @@ void			ft_puterrnl(char *s);
 void			ft_putcolor(char *str, char *color);
 void			ft_putcolornl(char *str, char *color);
 char			*ft_itoa(int n);
-char			*ft_itoa_base(long value, int base);
+char			*ft_itoa_base(long long int value, int base);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
 void			ft_putchar_fd(char c, int fd);

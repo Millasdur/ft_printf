@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/16 18:09:25 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/17 16:01:39 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_number.c		\
 			  ft_get_attr.c		\
 			  ft_padding.c		\
+			  ft_get_number.c	\
+			  handle_plus_space.c	\
 			  ft_flag.c			
 PRINTF_PATH = ft_printf/
 SRC = $(addprefix $(PRINTF_PATH), $(PRINTF_NAME))
