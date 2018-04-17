@@ -29,6 +29,8 @@ int main(void)
 	/* ft_printf("%d"); */
 	/* printf("%10s\n", NULL); */
 	/* ft_printf("%10s\n", NULL); */
+	printf("test[%C]\n", 42);
+	/* ft_printf("mine[%C]\n", 42); */
 	printf("test[%3c]\n", 42);
 	ft_printf("mine[%3c]\n", 42);
 	printf("test[%c]\n", 0);

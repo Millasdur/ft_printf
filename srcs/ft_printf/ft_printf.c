@@ -18,12 +18,14 @@ t_function	g_function[] =
 {
 	{'s', &ft_string},
 	{'c', &ft_char},
+	{'C', &ft_char},
 	{'d', &ft_int},
 	{'i', &ft_int},
 	{'o', &ft_octal},
 	{'x', &ft_minihexa},
 	{'X', &ft_maxihexa},
 	{'u', &ft_uint},
+	{'U', &ft_uint},
 	{'%', &ft_percent},
 	{0, NULL}
 };
