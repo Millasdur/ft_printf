@@ -20,6 +20,7 @@ t_function	g_function[] =
 	{'c', &ft_char},
 	{'C', &ft_char},
 	{'d', &ft_int},
+	{'D', &ft_int},
 	{'i', &ft_int},
 	{'o', &ft_octal},
 	{'x', &ft_minihexa},
