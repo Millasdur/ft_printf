@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 16:37:04 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 18:48:54 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/17 18:43:49 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/17 19:52:48 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int		ft_putnstr(char *s, size_t len)
 {
-	size_t	i;
-	char	*res;
-
-	if (s)
+	if (len)
 	{
-		i = 0;
-		if ((res = ft_strnew(len)))
-		{
-			while (i < len)
-			{
-				res[i] = s[start + i];
-				i++;
-			}
-			return (res);
-		}
+		write(STDOUT_FILENO, s, len);
+		return (len);
 	}
-	return (NULL);
+	return (0);
 }

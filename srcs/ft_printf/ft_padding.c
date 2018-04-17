@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 16:47:34 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 17:51:25 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*handle_hash(char *src, t_opt *opt, int type)
 	return (src);
 }
 
-char	*handle_preci(char *src, int preci)
+static char	*handle_preci(char *src, int preci)
 {
 	int		len;
 	char	*tmp;

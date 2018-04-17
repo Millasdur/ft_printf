@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/17 17:37:19 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/17 19:45:29 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,9 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_get_number.c	\
 			  handle_plus_space.c	\
 			  ft_string.c			\
+			  ft_char.c				\
+			  ft_strpadding.c		\
+			  ft_charpadding.c		\
 			  ft_flag.c			
 PRINTF_PATH = ft_printf/
 SRC = $(addprefix $(PRINTF_PATH), $(PRINTF_NAME))
@@ -79,6 +82,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_putnbr.c\
 		   ft_putnbr_fd.c\
 		   ft_putstr.c\
+		   ft_putnstr.c\
 		   ft_putstr_fd.c\
 		   ft_strcat.c\
 		   ft_strchr.c\
@@ -106,6 +110,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_strsplit.c\
 		   ft_strstr.c\
 		   ft_strsub.c\
+		   ft_strsubdel.c\
 		   ft_strtrim.c\
 		   ft_tolower.c\
 		   ft_lowercase.c\

@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 16:37:04 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 18:48:54 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/17 19:31:40 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/17 20:05:30 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int			ft_char(va_list *arg, t_opt opt)
 {
-	size_t	i;
+	int		c;
+	int		len;
 	char	*res;
 
-	if (s)
-	{
-		i = 0;
-		if ((res = ft_strnew(len)))
-		{
-			while (i < len)
-			{
-				res[i] = s[start + i];
-				i++;
-			}
-			return (res);
-		}
-	}
-	return (NULL);
+	c = va_arg(*arg, int);
+	res = ft_strnew(1);
+	res[0] = (c == 0) ? '\0' : c;
+	len = (c == 0) ? 1 : 0;
+	res = handle_charflag(res, opt, len);
+	ft_putnstr(res, ft_strlen(res) + len);
+	return (ft_strlen(res) + len);
 }

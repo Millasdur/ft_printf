@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 16:07:13 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 18:41:14 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,21 @@
 
 t_opt	get_preci(char *str, t_opt opt)
 {
-	char	*tmp;
+	int		i;
 
-	if ((tmp = ft_strrchr(str, '.')) == NULL)
-		return (opt);
-	if (*(tmp + 1))
-		opt.preci = ft_atoi(tmp + 1);
+	i = 0;
+	while (str[i] && !is_converter(str[i]))
+	{
+		if (str[i] == '.')
+		{
+			i++;
+			opt.preci = ft_atoi(str + i);
+			while (str[i] && str[i + 1] &&
+					!is_converter(str[i + 1]) && ft_isdigit(str[i]))
+				i++;
+		}
+		i++;
+	}
 	return (opt);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 18:19:04 by hlely             #+#    #+#             */
-/*   Updated: 2017/11/09 11:14:39 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 18:46:37 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 
 void	ft_putstr(char const *s)
 {
-	int i;
-
 	if (s)
-	{
-		i = 0;
-		while (s[i])
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-	}
+		write(STDOUT_FILENO, s, ft_strlen(s));
 }

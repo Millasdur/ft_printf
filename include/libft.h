@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 18:49:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 14:49:56 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/17 19:14:07 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_strsubdel(char *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoindel(char *s1, const char *s2);
 char			*ft_strjoinddel(char *s1, char *s2);
@@ -95,6 +96,7 @@ char			**ft_strsplit(char const *s, char c);
 void			ft_putchar(char c);
 void			ft_putchare(char c);
 void			ft_putstr(char const *s);
+int				ft_putnstr(char *s, size_t len);
 void			ft_puterr(char *s);
 void			ft_puterrnl(char *s);
 void			ft_putcolor(char *str, char *color);
