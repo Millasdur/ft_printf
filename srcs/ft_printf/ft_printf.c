@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:11:28 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 13:32:03 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_function	g_function[] =
 	{'c', &ft_char},
 	{'C', &ft_char},
 	{'d', &ft_int},
-	{'D', &ft_int},
+	{'D', &ft_maxiint},
 	{'i', &ft_int},
 	{'o', &ft_octal},
 	{'x', &ft_minihexa},

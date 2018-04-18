@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:14:20 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 13:32:48 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		ft_pointer(va_list *arg, t_opt opt);
 int		ft_char(va_list *arg, t_opt opt);
 int		ft_percent(va_list *arg, t_opt opt);
 int		ft_int(va_list *arg, t_opt opt);
+int		ft_maxiint(va_list *arg, t_opt opt);
 int		ft_uint(va_list *arg, t_opt opt);
 int		ft_umaxiint(va_list *arg, t_opt opt);
 int		ft_octal(va_list *arg, t_opt opt);
