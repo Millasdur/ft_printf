@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 08:58:24 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 10:01:21 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void)
 	/* ft_printf("mine[%c]\n", 0); */
 	/* ft_printf("-----\n%s-----\n", "bonjour"); */
 	
-	printf("%20lp\n", str1);
-	ft_printf("%20lp\n", str1);
+	printf("[%lu]\n", -42);
+	ft_printf("|%lu|\n", -42);
 	return (0);
 }

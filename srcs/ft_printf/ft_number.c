@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:56:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 17:08:29 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 09:35:41 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			ft_octal(va_list *arg, t_opt opt)
 	char	*res;
 
 	nb = get_number(arg, opt);
-	/* opt.flags ^= (nb == 0) ? (opt.flags & HASH) : 0; */
+	opt.flags ^= (nb == 0 && opt.preci != 0) ? (opt.flags & HASH) : 0;
 	res = ft_itoa_base(nb, 8);
 	if (ft_strequ(res, "0") && opt.preci == 0)
 	{
