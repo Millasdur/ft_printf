@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 08:42:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 09:08:31 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 13:34:58 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int			ft_pointer(va_list *arg, t_opt opt)
 {
-	long long int		nb;
+	uintmax_t		nb;
 	char	*res;
 
-	nb = get_number(arg, opt);
+	nb = get_unumber(arg, opt);
 	opt.flags |= HASH;
-	res = ft_itoa_base(nb, 16);
+	res = ft_uitoa_base(nb, 16);
 	if (ft_strequ(res, "0") && opt.preci == 0)
 	{
 		ft_strdel(&res);
