@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 19:43:23 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 20:04:22 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 15:42:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*handle_width(char *src, t_opt opt, int zero)
 	return (tmp);
 }
 
-char	*handle_charflag(char *src, t_opt opt, int len)
+char		*handle_charflag(char *src, t_opt opt, int len)
 {
 	src = handle_width(src, opt, len);
 	return (src);

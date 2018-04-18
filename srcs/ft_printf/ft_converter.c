@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 12:09:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 18:26:51 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 15:35:04 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int			convert(va_list *arg, char c, char *flags)
 		if (g_function[j].value == c)
 		{
 			opt = get_attr(flags);
-/* check_flag(opt.flags); */
-/* check_modif(opt.modif); */
 			len = g_function[j].f(arg, opt);
-			break ;
+			return (len);
 		}
 		j++;
 	}
+	opt = get_attr(flags);
+	opt.charac = c;
+	len = ft_else(arg, opt);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 16:03:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:10:47 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 15:41:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static int	nb_n(intmax_t value, int base)
 	return (i);
 }
 
-char		 *ft_itoa_base(intmax_t value, int base)
+char		*ft_itoa_base(intmax_t value, int base)
 {
-	int vv;
-	char *bb;
-	char *res;
+	int		vv;
+	char	*bb;
+	char	*res;
 
 	bb = "0123456789ABCDEF";
 	if (value == 0)

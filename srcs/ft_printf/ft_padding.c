@@ -6,33 +6,38 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 11:59:07 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 18:16:29 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*handle_hash(char *src, t_opt *opt, int type)
+#include <stdio.h>
+
+char		*handle_hash(char *src, t_opt *opt, int type)
 {
 	char	*tmp;
 
 	if (opt->flags & HASH)
 	{
-		tmp = ft_strdup(src);
 		if (type == OCT)
 			tmp = ft_strjoin("0", src);
-		else if (type == HEX)
+		else if (type == HEX || type == POINT)
 			tmp = ft_strjoin("0x", src);
 		else if (type == MHEX)
 			tmp = ft_strjoin("0X", src);
-		opt->flags ^= (opt->flags & HASH);
+		else
+			tmp = ft_strdup(src);
+		opt->flags &= ~HASH;
 		tmp = handle_plus_space(tmp, opt, INT);
+		opt->flags &= ~PLUS;
+		opt->flags &= ~SPACE;
 		ft_strdel(&src);
 		return (tmp);
 	}
 	src = handle_plus_space(src, opt, INT);
-	opt->flags ^= (opt->flags & PLUS);
-	opt->flags ^= (opt->flags & SPACE);
+	opt->flags &= ~PLUS;
+	opt->flags &= ~SPACE;
 	return (src);
 }
 
@@ -55,12 +60,13 @@ static char	*handle_preci(char *src, int preci)
 	return (tmp);
 }
 
-int		get_len(char *src, t_opt opt, int type)
+static int	get_len(char *src, t_opt opt, int type)
 {
 	int		len;
 
 	len = opt.width - ft_strlen(src);
-	if ((opt.flags & HASH) && type >= HEX && !ft_strequ(src, "0"))
+	if ((opt.flags & HASH) && (((type == HEX || type == MHEX)
+					&& !ft_strequ(src, "0")) || type == POINT))
 		len -= 2;
 	if ((opt.flags & HASH) && type == OCT && !ft_strequ(src, "0"))
 		len -= 1;
@@ -69,7 +75,7 @@ int		get_len(char *src, t_opt opt, int type)
 	return (len);
 }
 
-char	*handle_width(char *src, t_opt *opt, int type)
+char		*handle_width(char *src, t_opt *opt, int type)
 {
 	int		len;
 	char	*tmp;
@@ -96,7 +102,7 @@ char	*handle_width(char *src, t_opt *opt, int type)
 	return (tmp);
 }
 
-char	*handle_number_flag(char *src, t_opt *opt, int type)
+char		*handle_number_flag(char *src, t_opt *opt, int type)
 {
 	src = handle_preci(src, opt->preci);
 	src = handle_width(src, opt, type);

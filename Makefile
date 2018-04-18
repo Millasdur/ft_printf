@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/18 14:10:54 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/18 16:35:54 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_converter.c	\
 			  ft_number.c		\
 			  ft_unumber.c		\
+			  ft_octal.c		\
 			  ft_get_attr.c		\
 			  ft_padding.c		\
 			  ft_get_number.c	\
 			  handle_plus_space.c	\
 			  ft_string.c			\
+			  ft_else.c				\
 			  ft_pointer.c			\
 			  ft_char.c				\
 			  ft_strpadding.c		\
@@ -129,7 +131,7 @@ SRCS = $(addprefix $(PATHSRC), $(SRC))
 OBJ = $(SRCS:.c=.o)
 
 ### INCLUDES ###
-LIBINCLUDES = include/
+LIBINCLUDES = includes/
 LIBINC = -I$(LIBINCLUDES)
 LFLAGS = -Wall -Wextra
 
@@ -150,11 +152,14 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(AR) $@ $^
 	@ranlib $@
+	@echo
 	@echo "\033[1;38;2;255;244;24m <<< libft -> ready >>>\033[0m"
 
 %.o:%.c
 	@$(CC) $(LFLAGS) $(LIBINC) -o $@ -c $<
-	@echo "[\033[38;2OK\033[0m] Compilation" $<
+	@echo "\033[38;2;255;95;30m\c"
+	@echo "Compilation" $<"\033[0m\033[K\c"
+	@echo "\033[70D\c"
 
 clean :
 	@/bin/rm -rf $(OBJ)

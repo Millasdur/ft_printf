@@ -6,13 +6,11 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:32:03 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 16:36:28 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_printf.h"
-
-#include "../../include/ft_printf.h"
+#include "ft_printf.h"
 
 t_function	g_function[] =
 {
@@ -24,6 +22,7 @@ t_function	g_function[] =
 	{'D', &ft_maxiint},
 	{'i', &ft_int},
 	{'o', &ft_octal},
+	{'O', &ft_maxioctal},
 	{'x', &ft_minihexa},
 	{'X', &ft_maxihexa},
 	{'u', &ft_uint},
@@ -31,6 +30,13 @@ t_function	g_function[] =
 	{'%', &ft_percent},
 	{0, NULL}
 };
+
+int			is_attr(char c)
+{
+	if (ft_strchr("0123456789.-+ #lhjz", c))
+		return (1);
+	return (0);
+}
 
 int			ft_percent(va_list *arg, t_opt opt)
 {
@@ -44,10 +50,26 @@ int			ft_percent(va_list *arg, t_opt opt)
 	return (ft_strlen(res));
 }
 
+int			prepare_convertion(va_list *arg, char **str, int *i, int len)
+{
+	int		j;
+
+	ft_putnstr(*str, *i);
+	len += *i;
+	*str += *i + 1;
+	*i = 0;
+	j = *i;
+	while ((*str)[*i] && is_attr((*str)[*i]))
+		(*i)++;
+	len += convert(arg, (*str)[*i], *str + j);
+	*str += *i + 1;
+	*i = 0;
+	return (len);
+}
+
 int			ft_printf(char *str, ...)
 {
 	int		i;
-	int		j;
 	int		len;
 	va_list	arg;
 
@@ -57,19 +79,7 @@ int			ft_printf(char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
-			ft_putnstr(str, i);
-			len += i;
-			str += i + 1;
-			i = 0;
-			j = i;
-			while (str[i] && !is_converter(str[i]))
-				i++;
-			if (is_converter(str[i]))
-				len += convert(&arg, str[i], str + j);
-			str += i + 1;
-			i = 0;
-		}
+			len = prepare_convertion(&arg, &str, &i, len);
 		else
 			i++;
 	}

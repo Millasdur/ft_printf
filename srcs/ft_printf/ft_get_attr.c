@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 18:41:14 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 15:30:52 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ t_opt	get_attr(char *str)
 
 	opt.positive = 1;
 	opt.preci = -1;
+	opt.charac = 0;
 	opt.width = 0;
 	opt.modif = 0;
 	opt.zero = 0;
@@ -98,8 +99,5 @@ t_opt	get_attr(char *str)
 	opt = get_zero(str, opt);
 	opt = get_flag(str, opt);
 	opt = get_modif(str, opt);
-	/* printf("largeur\t\t: %d\n", opt.width); */
-	/* printf("precision\t: %d\n", opt.preci); */
-	/* printf("zero\t\t: %d\n", opt.zero); */
 	return (opt);
 }
