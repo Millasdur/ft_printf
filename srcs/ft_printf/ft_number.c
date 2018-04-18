@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:56:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:32:29 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 14:12:38 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int			ft_minihexa(va_list *arg, t_opt opt)
 	/* if (nb < 0) */
 	/* 	res = ft_itoa_base(4294967296 + nb, 16); */
 	/* else */
-		res = ft_itoa_base(nb, 16);
+		res = ft_uitoa_base(nb, 16);
 	if (ft_strequ(res, "0") && opt.preci == 0)
 	{
 		ft_strdel(&res);
@@ -109,7 +109,7 @@ int			ft_maxihexa(va_list *arg, t_opt opt)
 	/* if (nb < 0) */
 	/* 	res = ft_itoa_base(4294967296 + nb, 16); */
 	/* else */
-		res = ft_itoa_base(nb, 16);
+		res = ft_uitoa_base(nb, 16);
 	if (ft_strequ(res, "0") && opt.preci == 0)
 	{
 		ft_strdel(&res);

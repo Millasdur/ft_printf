@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 13:11:55 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:17:01 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 14:12:26 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ int			ft_umaxiint(va_list *arg, t_opt opt)
 	uintmax_t				nb;
 	char					*res;
 
+	opt.modif |= L_MODE;
 	nb = get_unumber(arg, opt);
 	opt.flags &= ~PLUS;
-	opt.modif |= L_MODE;
-	opt.modif &= ~H_MODE;
-	opt.modif &= ~HH_MODE;
 	opt.flags &= ~SPACE;
 	res = ft_uitoa_base(nb, 10);
 	if (ft_strequ(res, "0") && opt.preci == 0)
