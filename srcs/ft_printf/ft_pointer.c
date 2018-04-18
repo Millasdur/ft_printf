@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 08:42:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:34:58 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 14:15:51 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int			ft_pointer(va_list *arg, t_opt opt)
 	uintmax_t		nb;
 	char	*res;
 
+	opt.modif |= L_MODE;
 	nb = get_unumber(arg, opt);
 	opt.flags |= HASH;
 	res = ft_uitoa_base(nb, 16);
