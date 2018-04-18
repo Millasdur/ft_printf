@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 08:58:46 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 13:11:28 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_function	g_function[] =
 	{'x', &ft_minihexa},
 	{'X', &ft_maxihexa},
 	{'u', &ft_uint},
-	{'U', &ft_uint},
+	{'U', &ft_umaxiint},
 	{'%', &ft_percent},
 	{0, NULL}
 };
@@ -63,7 +63,7 @@ int			ft_printf(char *str, ...)
 			str += i + 1;
 			i = 0;
 			j = i;
-			while (!is_converter(str[i]))
+			while (str[i] && !is_converter(str[i]))
 				i++;
 			if (is_converter(str[i]))
 				len += convert(&arg, str[i], str + j);
@@ -74,6 +74,5 @@ int			ft_printf(char *str, ...)
 			i++;
 	}
 	len += ft_putnstr(str, i);
-		/* printf("[%d]", len); */
 	return (len);
 }

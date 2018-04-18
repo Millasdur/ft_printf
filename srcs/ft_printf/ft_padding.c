@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 17:51:25 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 11:59:07 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*handle_hash(char *src, t_opt *opt, int type)
 
 	if (opt->flags & HASH)
 	{
-		tmp = src;
+		tmp = ft_strdup(src);
 		if (type == OCT)
 			tmp = ft_strjoin("0", src);
 		else if (type == HEX)

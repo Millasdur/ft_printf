@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/15 16:03:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 13:10:47 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/18 12:55:49 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/18 13:10:57 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	nb_n(intmax_t value, int base)
+static int	nb_n(uintmax_t value, int base)
 {
 	int i;
 
 	i = 0;
-	if (value < 0 && (intmax_t)base == 10)
-		i++;
 	while (value != 0)
 	{
 		value /= base;
@@ -27,7 +25,7 @@ static int	nb_n(intmax_t value, int base)
 	return (i);
 }
 
-char		 *ft_itoa_base(intmax_t value, int base)
+char		 *ft_uitoa_base(uintmax_t value, int base)
 {
 	int vv;
 	char *bb;
@@ -39,8 +37,6 @@ char		 *ft_itoa_base(intmax_t value, int base)
 	vv = nb_n(value, base);
 	if (!(res = (char*)malloc(sizeof(char) * (vv + 1))))
 		return (NULL);
-	if (value < 0 && base == 10)
-		res[0] = '-';
 	res[vv] = '\0';
 	vv--;
 	while (value)

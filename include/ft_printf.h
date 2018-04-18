@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 08:43:20 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 13:14:20 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		ft_char(va_list *arg, t_opt opt);
 int		ft_percent(va_list *arg, t_opt opt);
 int		ft_int(va_list *arg, t_opt opt);
 int		ft_uint(va_list *arg, t_opt opt);
+int		ft_umaxiint(va_list *arg, t_opt opt);
 int		ft_octal(va_list *arg, t_opt opt);
 int		ft_minihexa(va_list *arg, t_opt opt);
 int		ft_maxihexa(va_list *arg, t_opt opt);
@@ -77,8 +78,8 @@ char	*handle_number_flag(char *src, t_opt *opt, int type);
 char	*handle_hash(char *src, t_opt *opt, int type);
 char	*handle_plus_space(char *src, t_opt *opt, int type);
 
-long long int	get_number(va_list *arg, t_opt opt);
-long long int	get_unumber(va_list *arg, t_opt opt);
+intmax_t	get_number(va_list *arg, t_opt opt);
+uintmax_t	get_unumber(va_list *arg, t_opt opt);
 
 char			*handle_strflag(char *src, t_opt opt);
 char			*handle_charflag(char *src, t_opt opt, int len);

@@ -6,17 +6,17 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 13:26:01 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 17:33:00 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 12:55:13 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long	get_number(va_list *arg, t_opt opt)
+intmax_t	get_number(va_list *arg, t_opt opt)
 {
-	long long int	nb;
+	intmax_t	nb;
 
-	nb = va_arg(*arg, long long int);
+	nb = va_arg(*arg, intmax_t);
 	nb = (opt.modif & J_MODE) ? (intmax_t)nb : nb;
 	nb = (opt.modif & Z_MODE) ? (size_t)nb : nb;
 	nb = (opt.modif & HH_MODE) ? (signed char)nb : nb;
@@ -27,11 +27,11 @@ long long	get_number(va_list *arg, t_opt opt)
 	return (nb);
 }
 
-long long	get_unumber(va_list *arg, t_opt opt)
+uintmax_t	get_unumber(va_list *arg, t_opt opt)
 {
-	unsigned long long int	nb;
+	uintmax_t	nb;
 
-	nb = va_arg(*arg, unsigned long long int);
+	nb = va_arg(*arg, uintmax_t);
 	nb = (opt.modif & J_MODE) ? (uintmax_t)nb : nb;
 	nb = (opt.modif & Z_MODE) ? (size_t)nb : nb;
 	nb = (opt.modif & HH_MODE) ? (unsigned char)nb : nb;

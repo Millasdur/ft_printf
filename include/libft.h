@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 18:49:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 19:14:07 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 12:56:54 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ void			ft_puterrnl(char *s);
 void			ft_putcolor(char *str, char *color);
 void			ft_putcolornl(char *str, char *color);
 char			*ft_itoa(int n);
-char			*ft_itoa_base(long long int value, int base);
+char			*ft_itoa_base(intmax_t value, int base);
+char			*ft_uitoa_base(uintmax_t value, int base);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
 void			ft_putchar_fd(char c, int fd);

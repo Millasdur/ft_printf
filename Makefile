@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/18 08:42:58 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/18 13:12:23 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ AR = ar rc
 PRINTF_NAME = ft_printf.c		\
 			  ft_converter.c	\
 			  ft_number.c		\
+			  ft_unumber.c		\
 			  ft_get_attr.c		\
 			  ft_padding.c		\
 			  ft_get_number.c	\
@@ -61,6 +62,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_isprint.c\
 		   ft_itoa.c\
 		   ft_itoa_base.c\
+		   ft_uitoa_base.c\
 		   ft_lstadd.c\
 		   ft_lstaddlast.c\
 		   ft_lstdel.c\
