@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/17 19:45:29 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/18 08:42:58 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_get_number.c	\
 			  handle_plus_space.c	\
 			  ft_string.c			\
+			  ft_pointer.c			\
 			  ft_char.c				\
 			  ft_strpadding.c		\
 			  ft_charpadding.c		\

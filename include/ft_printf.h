@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 20:04:29 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/18 08:43:20 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ extern t_function	g_function[];
 
 int		ft_printf(char *str, ...);
 int		ft_string(va_list *arg, t_opt opt);
+int		ft_pointer(va_list *arg, t_opt opt);
 int		ft_char(va_list *arg, t_opt opt);
 int		ft_percent(va_list *arg, t_opt opt);
 int		ft_int(va_list *arg, t_opt opt);
