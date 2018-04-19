@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 10:19:00 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 13:48:10 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static int	first_number(char *str)
 	int		i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '0')
-			return (1);
+	while (str[i] && !ft_isdigit(str[i]))
 		i++;
-	}
+	if (str[i] == '0')
+		return (1);
 	return (0);
 }
 

@@ -6,60 +6,66 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 15:30:52 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 11:37:16 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_opt	get_preci(char *str, t_opt opt)
+static int	get_preci(char *str)
 {
 	int		i;
+	int		preci;
 
 	i = 0;
+	preci = -1;
 	while (str[i] && !is_converter(str[i]))
 	{
 		if (str[i] == '.')
 		{
 			i++;
-			opt.preci = ft_atoi(str + i);
+			preci = ft_atoi(str + i);
 			while (str[i] && str[i + 1] &&
 					!is_converter(str[i + 1]) && ft_isdigit(str[i]))
 				i++;
 		}
 		i++;
 	}
-	return (opt);
+	return (preci);
 }
 
-t_opt	get_width(char *str, t_opt opt)
+static int	get_width(char *str)
 {
 	int		i;
+	int		width;
 
 	i = 0;
 	while (str[i] && !is_converter(str[i]) && str[i] != '.'
 			&& (!ft_isdigit(str[i]) || str[i] == '0'))
 		i++;
-	opt.width = ft_atoi(str + i);
-	return (opt);
+	width = ft_atoi(str + i);
+	return (width);
 }
 
-t_opt	get_zero(char *str, t_opt opt)
+static int	get_zero(char *str)
 {
 	int		i;
+	int		zero;
 
 	i = 0;
+	zero = 0;
 	while (str[i] && !is_converter(str[i]) && str[i] != '.'
 			&& !ft_isdigit(str[i]))
 		i++;
 	if (str[i] && str[i] == '0')
-		opt.zero = 1;
-	return (opt);
+		zero = 1;
+	return (zero);
 }
 
-t_opt	get_modif(char *str, t_opt opt)
+static int get_modif(char *str)
 {
 	int		i;
+	int		modif;
 
 	i = 0;
 	while (str[i] && !is_converter(str[i]))
@@ -67,37 +73,28 @@ t_opt	get_modif(char *str, t_opt opt)
 		if (ft_strchr("lhjz", str[i]))
 		{
 			if (str[i] == 'l' && str[i + 1] && str[i + 1] == 'l')
-				opt.modif = LL_MODE;
+				modif = LL_MODE;
 			else if (str[i] == 'l' && str[i + 1] && str[i + 1] != 'l')
-				opt.modif = L_MODE;
+				modif = L_MODE;
 			else if (str[i] == 'h' && str[i + 1] && str[i + 1] == 'h')
-				opt.modif = HH_MODE;
+				modif = HH_MODE;
 			else if (str[i] == 'h' && str[i + 1] && str[i + 1] != 'h')
-				opt.modif = H_MODE;
+				modif = H_MODE;
 			else if (str[i] == 'j')
-				opt.modif = J_MODE;
+				modif = J_MODE;
 			else if (str[i] == 'z')
-				opt.modif = Z_MODE;
+				modif = Z_MODE;
 		}
-		i += (opt.modif == HH_MODE || opt.modif == LL_MODE) ? 2 : 1;
+		i += (modif == HH_MODE || modif == LL_MODE) ? 2 : 1;
 	}
-	return (opt);
+	return (modif);
 }
 
-t_opt	get_attr(char *str)
+void		get_attr(char *str, t_opt *opt)
 {
-	t_opt	opt;
-
-	opt.positive = 1;
-	opt.preci = -1;
-	opt.charac = 0;
-	opt.width = 0;
-	opt.modif = 0;
-	opt.zero = 0;
-	opt = get_width(str, opt);
-	opt = get_preci(str, opt);
-	opt = get_zero(str, opt);
-	opt = get_flag(str, opt);
-	opt = get_modif(str, opt);
-	return (opt);
+	opt->width = get_width(str);
+	opt->preci = get_preci(str);
+	opt->zero = get_zero(str);
+	opt->flags = get_flag(str);
+	opt->modif = get_modif(str);
 }

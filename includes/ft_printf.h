@@ -6,13 +6,14 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 16:33:28 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 13:49:57 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+             #include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft.h"
@@ -38,6 +39,9 @@
 
 typedef struct		s_opt
 {
+	int		i;
+	int		len;
+	int		len2;
 	int		positive;
 	int		preci;
 	int		width;
@@ -50,33 +54,33 @@ typedef struct		s_opt
 typedef struct		s_function
 {
 	char	value;
-	int		(*f)(va_list*, t_opt);
+	char	*(*f)(va_list*, t_opt*);
 }					t_function;
 
 extern t_function	g_function[];
 
 int					ft_printf(char *str, ...);
-int					ft_string(va_list *arg, t_opt opt);
-int					ft_pointer(va_list *arg, t_opt opt);
-int					ft_char(va_list *arg, t_opt opt);
-int					ft_percent(va_list *arg, t_opt opt);
-int					ft_int(va_list *arg, t_opt opt);
-int					ft_maxiint(va_list *arg, t_opt opt);
-int					ft_uint(va_list *arg, t_opt opt);
-int					ft_umaxiint(va_list *arg, t_opt opt);
-int					ft_octal(va_list *arg, t_opt opt);
-int					ft_maxioctal(va_list *arg, t_opt opt);
-int					ft_minihexa(va_list *arg, t_opt opt);
-int					ft_maxihexa(va_list *arg, t_opt opt);
-int					ft_else(va_list *arg, t_opt opt);
+char				*ft_string(va_list *arg, t_opt *opt);
+char				*ft_pointer(va_list *arg, t_opt *opt);
+char				*ft_char(va_list *arg, t_opt *opt);
+char				*ft_percent(va_list *arg, t_opt *opt);
+char				*ft_int(va_list *arg, t_opt *opt);
+char				*ft_maxiint(va_list *arg, t_opt *opt);
+char				*ft_uint(va_list *arg, t_opt *opt);
+char				*ft_umaxiint(va_list *arg, t_opt *opt);
+char				*ft_octal(va_list *arg, t_opt *opt);
+char				*ft_maxioctal(va_list *arg, t_opt *opt);
+char				*ft_minihexa(va_list *arg, t_opt *opt);
+char				*ft_maxihexa(va_list *arg, t_opt *opt);
+char				*ft_else(va_list *arg, t_opt *opt);
 
 void				check_flag(int flags);
 void				check_modif(int flags);
 int					is_converter(char c);
-int					convert(va_list *arg, char c, char *flags);
+char				*convert(va_list *arg, char c, char *flags, t_opt *opt);
 
-t_opt				get_attr(char *str);
-t_opt				get_flag(char *str, t_opt opt);
+void				get_attr(char *str, t_opt *opt);
+int					get_flag(char *str);
 
 char				*handle_number_flag(char *src, t_opt *opt, int type);
 char				*handle_hash(char *src, t_opt *opt, int type);

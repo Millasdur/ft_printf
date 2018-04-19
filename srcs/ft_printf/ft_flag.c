@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 13:22:27 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/16 16:17:34 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 11:38:58 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		check_modif(int flags)
 	flags & HH_MODE ? ft_printf("hh\t\t: 1\n") : ft_printf("hh\t\t: 0\n");
 }
 
-t_opt		get_flag(char *str, t_opt opt)
+int			get_flag(char *str)
 {
 	int		i;
 	int		flags;
@@ -45,6 +45,5 @@ t_opt		get_flag(char *str, t_opt opt)
 		flags |= (str[i] == ' ') ? SPACE : flags;
 		i++;
 	}
-	opt.flags = flags;
-	return (opt);
+	return (flags);
 }

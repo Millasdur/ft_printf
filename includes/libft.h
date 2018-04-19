@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 18:49:34 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 12:56:54 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 14:13:43 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strncpy(char *dest, const char *src, size_t n);
 char			*ft_strcat(char *dest, const char *src);
 char			*ft_strncat(char *dest, const char *src, size_t n);
+char			*ft_ncat(char *dest, const char *src, size_t n1, size_t n2);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
@@ -91,6 +92,8 @@ char			*ft_strsubdel(char *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoindel(char *s1, const char *s2);
 char			*ft_strjoinddel(char *s1, char *s2);
+char			*ft_strnjoinddel(char *s1, char *s2, int len1, int len2);
+char			*ft_strnjoindel(char *s1, char *s2, int len1, int len2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 void			ft_putchar(char c);
