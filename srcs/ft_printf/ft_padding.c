@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 18:16:29 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 10:19:00 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,51 @@
 
 #include <stdio.h>
 
+static int	first_number(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char		*handle_hash(char *src, t_opt *opt, int type)
 {
 	char	*tmp;
 
 	if (opt->flags & HASH)
 	{
-		if (type == OCT)
+		if (type == OCT &&
+				((int)ft_strlen(src) >= opt->preci && !first_number(src)))
+		{
 			tmp = ft_strjoin("0", src);
+			opt->flags &= ~HASH;
+		}
 		else if (type == HEX || type == POINT)
+		{
 			tmp = ft_strjoin("0x", src);
+			opt->flags &= ~HASH;
+		}
 		else if (type == MHEX)
+		{
 			tmp = ft_strjoin("0X", src);
+			opt->flags &= ~HASH;
+		}
 		else
 			tmp = ft_strdup(src);
-		opt->flags &= ~HASH;
-		tmp = handle_plus_space(tmp, opt, INT);
+		tmp = handle_plus_space(tmp, opt, type);
 		opt->flags &= ~PLUS;
 		opt->flags &= ~SPACE;
 		ft_strdel(&src);
 		return (tmp);
 	}
-	src = handle_plus_space(src, opt, INT);
+	src = handle_plus_space(src, opt, type);
 	opt->flags &= ~PLUS;
 	opt->flags &= ~SPACE;
 	return (src);

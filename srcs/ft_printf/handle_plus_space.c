@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 15:55:38 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/17 16:32:07 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 10:18:22 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*handle_plus_space(char *src, t_opt *opt, int type)
 
 	if (type == INT)
 	{
-		if (opt->flags & PLUS)
+		if ((opt->flags & PLUS) && type == 1)
 		{
 			tmp = (opt->positive) ? ft_strdup("+") : ft_strdup("-");
 			tmp = analyse_src(src, tmp);
