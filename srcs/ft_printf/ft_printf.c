@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 14:23:07 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 16:30:25 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char		*ft_percent(va_list *arg, t_opt *opt)
 	res = ft_strdup("%");
 	opt->preci = -1;
 	res = handle_strflag(res, *opt);
+	opt->len2 = ft_strlen(res);
+	opt->len += ft_strlen(res);
 	return (res);
 }
 
@@ -86,6 +88,7 @@ int			ft_printf(char *str, ...)
 		else
 			(opt.i)++;
 	}
+	va_end(arg);
 	res = ft_strnjoindel(res, str, opt.len, ft_strlen(str));
 	opt.len += ft_strlen(str);
 	ft_putnstr(res, opt.len);

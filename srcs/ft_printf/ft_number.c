@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:56:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 13:51:54 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 15:42:42 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char		*ft_maxiint(va_list *arg, t_opt *opt)
 	intmax_t			nb;
 	char				*res;
 
-	opt->modif |= L_MODE;
+	opt->modif = L_MODE;
 	nb = get_number(arg, *opt);
 	if (nb < 0)
 	{

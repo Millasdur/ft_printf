@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 14:34:45 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 17:09:43 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,20 @@ int main(void)
 	/* ft_printf("mine[%c]\n", 0); */
 	/* ft_printf("-----\n%s-----\n", "bonjour"); */
 	
-	printf("[%o %O]\n", 42, 42);
-	ft_printf("|%o %O|\n", 42, 42);
-	printf("[%lo %lo]\n", 0, ULONG_MAX);
-	ft_printf("|%lo %lo|\n", 0, ULONG_MAX);
+	printf("test:%d\n");
+	printf("test:%d\n");
+	printf("test:%d\n");
+	printf("test:%d\n");
+	ft_printf("mine:%d\n", "test");
+	ft_printf("mine:%d\n", "test");
+	ft_printf("mine:%d\n", "test");
+	ft_printf("mine:%d\n", "test");
+	ft_printf("mine:%d\n", "test");
+	/* ft_printf("|%+03d|\n", 123456); */
+	/* printf("[%+03d]\n", 123456); */
+	/* printf("[%o %O]\n", 42, 42); */
+	/* ft_printf("|%o %O|\n", 42, 42); */
+	/* printf("[%lo %lo]\n", 0, ULONG_MAX); */
+	/* ft_printf("|%lo %lo|\n", 0, ULONG_MAX); */
 	return (0);
 }

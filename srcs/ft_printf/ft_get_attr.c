@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 11:37:16 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 16:30:00 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,13 @@ static int	get_zero(char *str)
 	return (zero);
 }
 
-static int get_modif(char *str)
+static int	get_modif(char *str)
 {
 	int		i;
 	int		modif;
 
 	i = 0;
+	modif = 0;
 	while (str[i] && !is_converter(str[i]))
 	{
 		if (ft_strchr("lhjz", str[i]))

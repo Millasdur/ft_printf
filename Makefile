@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/18 16:35:54 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/19 16:34:14 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_padding.c		\
 			  ft_get_number.c	\
 			  handle_plus_space.c	\
+			  ft_handle_hash.c		\
 			  ft_string.c			\
 			  ft_else.c				\
 			  ft_pointer.c			\
@@ -101,6 +102,7 @@ LIB_NAME = ft_putchar.c\
 		   ft_striteri.c\
 		   ft_strjoin.c\
 		   ft_strjoindel.c\
+		   ft_strjoinddel.c\
 		   ft_strlcat.c\
 		   ft_strlen.c\
 		   ft_strmap.c\

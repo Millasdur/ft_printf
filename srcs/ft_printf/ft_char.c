@@ -6,11 +6,21 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 19:31:40 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 13:56:22 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 17:04:22 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char		*ft_wchar(va_list *arg, t_opt *opt)
+{
+	int		c;
+	char	*res;
+
+	c = va_arg(*arg, int);
+	printf("value:%d", c);
+	return (res);
+}
 
 char		*ft_char(va_list *arg, t_opt *opt)
 {

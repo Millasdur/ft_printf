@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 16:33:06 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 14:31:19 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 15:33:01 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char		*ft_maxioctal(va_list *arg, t_opt *opt)
 	uintmax_t		nb;
 	char			*res;
 
-	opt->flags |= L_MODE;
+	opt->modif = L_MODE;
 	nb = get_unumber(arg, *opt);
 	opt->flags ^= (nb == 0 && opt->preci != 0) ? (opt->flags & HASH) : 0;
 	res = ft_uitoa_base(nb, 8);

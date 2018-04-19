@@ -6,14 +6,15 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 13:49:57 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 17:13:58 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-             #include <stdio.h>
+		#include <stdio.h>
+
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft.h"
@@ -74,8 +75,6 @@ char				*ft_minihexa(va_list *arg, t_opt *opt);
 char				*ft_maxihexa(va_list *arg, t_opt *opt);
 char				*ft_else(va_list *arg, t_opt *opt);
 
-void				check_flag(int flags);
-void				check_modif(int flags);
 int					is_converter(char c);
 char				*convert(va_list *arg, char c, char *flags, t_opt *opt);
 
