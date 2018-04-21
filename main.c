@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 17:09:43 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 17:23:48 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,10 @@ int main(void)
 	/* printf("test[%c]\n", 0); */
 	/* ft_printf("mine[%c]\n", 0); */
 	/* ft_printf("-----\n%s-----\n", "bonjour"); */
+	wchar_t test = 129;
 	
-	printf("test:%d\n");
-	printf("test:%d\n");
-	printf("test:%d\n");
-	printf("test:%d\n");
-	ft_printf("mine:%d\n", "test");
-	ft_printf("mine:%d\n", "test");
-	ft_printf("mine:%d\n", "test");
-	ft_printf("mine:%d\n", "test");
-	ft_printf("mine:%d\n", "test");
+	ft_printf("mine:%C\n", test);
+	printf("test:%C\n", test);
 	/* ft_printf("|%+03d|\n", 123456); */
 	/* printf("[%+03d]\n", 123456); */
 	/* printf("[%o %O]\n", 42, 42); */

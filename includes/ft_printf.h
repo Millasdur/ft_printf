@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 17:13:58 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/19 17:19:23 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int					ft_printf(char *str, ...);
 char				*ft_string(va_list *arg, t_opt *opt);
 char				*ft_pointer(va_list *arg, t_opt *opt);
 char				*ft_char(va_list *arg, t_opt *opt);
+char				*ft_wchar(va_list *arg, t_opt *opt);
 char				*ft_percent(va_list *arg, t_opt *opt);
 char				*ft_int(va_list *arg, t_opt *opt);
 char				*ft_maxiint(va_list *arg, t_opt *opt);
