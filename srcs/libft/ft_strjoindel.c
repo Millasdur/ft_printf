@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 17:02:02 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 14:13:18 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/21 16:01:09 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ char	*ft_strnjoindel(char *s1, char *s2, int len1, int len2)
 	if (s1 && s2)
 	{
 		size = len1 + len2;
-		if ((res = ft_strnew(size)))
+		res = (char*)malloc(sizeof(char) * (size + 1));
+		if (res)
 		{
 			res = ft_ncat(res, s1, 0, len1);
 			ft_strdel(&s1);
@@ -57,6 +58,7 @@ char	*ft_strnjoindel(char *s1, char *s2, int len1, int len2)
 	if (!s1 && s2)
 	{
 		res = ft_strnew(len2);
+		res = (char*)malloc(sizeof(char) * (len2 + 1));
 		res = ft_ncat(res, s2, 0, len2);
 		return (res);
 	}

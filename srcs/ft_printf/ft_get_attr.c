@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:06:21 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 16:30:00 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/22 12:52:48 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ void		get_attr(char *str, t_opt *opt)
 	opt->preci = get_preci(str);
 	opt->zero = get_zero(str);
 	opt->flags = get_flag(str);
-	opt->modif = get_modif(str);
+	if (!check_attr(str, opt))
+		opt->modif = get_modif(str);
 }

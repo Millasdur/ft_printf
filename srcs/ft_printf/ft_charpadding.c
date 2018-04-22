@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 19:43:23 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/18 15:42:06 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/21 17:13:28 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static char	*handle_width(char *src, t_opt opt, int zero)
 		len--;
 	}
 	if (opt.flags & MINUS)
-		tmp = ft_strjoinddel(src, tmp);
+		tmp = ft_strnjoinddel(src, tmp, 1, ft_strlen(tmp));
 	else
 	{
-		tmp = ft_strjoindel(tmp, src);
+		tmp = ft_strnjoindel(tmp, src, ft_strlen(tmp), 1);
 		ft_strdel(&src);
 	}
 	return (tmp);

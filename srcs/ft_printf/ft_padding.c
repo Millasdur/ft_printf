@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:33:54 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 16:33:55 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/22 12:46:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char		*handle_width(char *src, t_opt *opt, int type)
 			ft_strjoindel(tmp, "0") : ft_strjoindel(tmp, " ");
 		len--;
 	}
-	if (!opt->zero)
+	if (!opt->zero || (opt->zero && opt->preci != -1))
 		src = handle_hash(src, opt, type);
 	if (opt->flags & MINUS)
 		tmp = ft_strjoinddel(src, tmp);

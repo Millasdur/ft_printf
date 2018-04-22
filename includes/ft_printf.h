@@ -6,18 +6,17 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 17:19:23 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/22 12:56:26 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-		#include <stdio.h>
-
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft.h"
+# include <wchar.h>
 
 # define HASH		1
 # define MINUS		2
@@ -61,6 +60,7 @@ typedef struct		s_function
 extern t_function	g_function[];
 
 int					ft_printf(char *str, ...);
+int					ft_printf_fd(int fd, char *str, ...);
 char				*ft_string(va_list *arg, t_opt *opt);
 char				*ft_pointer(va_list *arg, t_opt *opt);
 char				*ft_char(va_list *arg, t_opt *opt);
@@ -80,6 +80,7 @@ int					is_converter(char c);
 char				*convert(va_list *arg, char c, char *flags, t_opt *opt);
 
 void				get_attr(char *str, t_opt *opt);
+int					check_attr(char *str, t_opt *opt);
 int					get_flag(char *str);
 
 char				*handle_number_flag(char *src, t_opt *opt, int type);

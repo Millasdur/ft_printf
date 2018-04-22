@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 17:21:58 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/22 15:30:33 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_function	g_function[] =
 	{'s', &ft_string},
 	{'p', &ft_pointer},
 	{'c', &ft_char},
-	{'C', &ft_char},
+	{'C', &ft_wchar},
 	{'d', &ft_int},
 	{'D', &ft_maxiint},
 	{'i', &ft_int},
@@ -33,7 +33,10 @@ t_function	g_function[] =
 
 int			is_attr(char c)
 {
-	if (ft_strchr("0123456789.-+ #lhjz", c))
+	char	*tmp;
+
+	tmp = "0123456789.-+ #lhjz";
+	if (ft_strchr(tmp, c) != NULL)
 		return (1);
 	return (0);
 }
@@ -66,12 +69,41 @@ char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
 		(opt->i)++;
 	tmp = convert(arg, (*str)[opt->i], *str + j, opt);
 	res = ft_strnjoinddel(res, tmp, opt->len - opt->len2, opt->len2);
-	*str += opt->i + 1;
+	*str += opt->i;
+	if ((*str)[0])
+		(*str)++;
 	opt->i = 0;
 	return (res);
 }
 
 int			ft_printf(char *str, ...)
+{
+	char	*res;
+	va_list	arg;
+	t_opt	opt;
+
+	opt.i = 0;
+	opt.len = 0;
+	opt.len2 = 0;
+	opt.positive = 1;
+	va_start(arg, str);
+	res = ft_strdup("");
+	while (str && str[(opt.i)])
+	{
+		if (str[opt.i] == '%')
+			res = prepare_convertion(&arg, &str, &opt, res);
+		else
+			(opt.i)++;
+	}
+	va_end(arg);
+	res = ft_strnjoindel(res, str, opt.len, ft_strlen(str));
+	opt.len += ft_strlen(str);
+	ft_putnstr(res, opt.len);
+	ft_strdel(&res);
+	return (opt.len);
+}
+
+int			ft_printf_fd(int fd, char *str, ...)
 {
 	char	*res;
 	va_list	arg;
@@ -91,7 +123,7 @@ int			ft_printf(char *str, ...)
 	va_end(arg);
 	res = ft_strnjoindel(res, str, opt.len, ft_strlen(str));
 	opt.len += ft_strlen(str);
-	ft_putnstr(res, opt.len);
+	write(fd, res, opt.len);
 	ft_strdel(&res);
 	return (opt.len);
 }

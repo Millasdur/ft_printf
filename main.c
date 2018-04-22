@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:31:52 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/19 17:23:48 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/21 18:03:57 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-	long	i = 4294967295;
+	/* long	i = 4294967295; */
 	/* unsigned short i = 4294967296; */
 	/* float f = 1.23; */
 	/* float g = 1; */
@@ -38,10 +38,14 @@ int main(void)
 	/* printf("test[%c]\n", 0); */
 	/* ft_printf("mine[%c]\n", 0); */
 	/* ft_printf("-----\n%s-----\n", "bonjour"); */
-	wchar_t test = 129;
+	int i = 0;
 	
-	ft_printf("mine:%C\n", test);
-	printf("test:%C\n", test);
+	ft_printf("%lhlz", 9223372036854775807);
+	/* ft_printf("{%-15Z}\n", 123); */
+	/* printf("{%-15Z}\n", 123); */
+
+	/* ft_printf("mine:hello ca%----4c %1c va %10c%-c ??\n", '\0', '\n', (char)564, 0); */
+	/* printf("test:hello ca%----4c %1c va %10c%-c ??\n", '\0', '\n', (char)564, 0); */
 	/* ft_printf("|%+03d|\n", 123456); */
 	/* printf("[%+03d]\n", 123456); */
 	/* printf("[%o %O]\n", 42, 42); */
