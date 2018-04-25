@@ -37,7 +37,7 @@ char		*handle_strwidth(char *src, t_opt opt)
 	tmp = ft_strdup("");
 	while (len > 0)
 	{
-		tmp = (opt.zero && (opt.flags & MINUS) == 0) ?
+		tmp = (opt.zero && ((opt.flags & MINUS) == 0)) ?
 			ft_strjoindel(tmp, "0") : ft_strjoindel(tmp, " ");
 		len--;
 	}

@@ -19,8 +19,11 @@ int main(void)
 	wint_t i = 0x20AC;
 	/* wchar_t i = €; */
 	
-	ft_printf("%S", 0);
-	printf("%S", 0);
+	ft_printf("{%05.S}", L"42 c est cool");
+	printf("{%05.S}", L"42 c est cool");
+	/* printf("%S\n", L""); */
+	/* ft_printf("%S", 0); */
+	/* printf("%S", 0); */
 	/* printf("%lc\n", 0x40501); */
 	/* printf("%lc, %lc", L'ÊM-^ZM-^V', L'ÿ≠'); */
 

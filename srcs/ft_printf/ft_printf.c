@@ -69,8 +69,6 @@ char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
 	while ((*str)[opt->i] && is_attr((*str)[opt->i]))
 		(opt->i)++;
 	tmp = convert(arg, (*str)[opt->i], *str + j, opt);
-	if (tmp == NULL)
-		return (NULL);
 	res = ft_strnjoinddel(res, tmp, opt->len - opt->len2, opt->len2);
 	*str += opt->i;
 	if ((*str)[0])

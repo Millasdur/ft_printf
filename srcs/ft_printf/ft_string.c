@@ -37,6 +37,7 @@ char		*ft_bigstring(va_list *arg, t_opt *opt)
 		res = handle_strflag(res, *opt);
 		opt->len2 = ft_strlen(res);
 		opt->len += ft_strlen(res);
+		return (res);
 	}
 	else
 	{
