@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/25 16:54:09 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/25 17:45:17 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ extern t_function	g_function[];
 int					ft_printf(char *str, ...);
 int					ft_printf_fd(int fd, char *str, ...);
 char				*ft_string(va_list *arg, t_opt *opt);
+char				*ft_bigstring(va_list *arg, t_opt *opt);
 char				*ft_pointer(va_list *arg, t_opt *opt);
 char				*ft_char(va_list *arg, t_opt *opt);
 char				*ft_wchar(va_list *arg, t_opt *opt);
@@ -85,6 +86,7 @@ void				get_attr(char *str, t_opt *opt);
 int					check_attr(char *str, t_opt *opt);
 int					get_flag(char *str);
 
+char				*handle_strwidth(char *src, t_opt opt);
 char				*handle_number_flag(char *src, t_opt *opt, int type);
 char				*handle_hash(char *src, t_opt *opt, int type);
 char				*handle_plus_space(char *src, t_opt *opt, int type);
