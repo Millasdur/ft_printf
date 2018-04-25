@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/22 15:30:33 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/25 16:46:22 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
 	while ((*str)[opt->i] && is_attr((*str)[opt->i]))
 		(opt->i)++;
 	tmp = convert(arg, (*str)[opt->i], *str + j, opt);
+	if (tmp == NULL)
+		return (NULL);
 	res = ft_strnjoinddel(res, tmp, opt->len - opt->len2, opt->len2);
 	*str += opt->i;
 	if ((*str)[0])
@@ -94,6 +96,8 @@ int			ft_printf(char *str, ...)
 			res = prepare_convertion(&arg, &str, &opt, res);
 		else
 			(opt.i)++;
+		if (res == NULL)
+			return (-1);
 	}
 	va_end(arg);
 	res = ft_strnjoindel(res, str, opt.len, ft_strlen(str));

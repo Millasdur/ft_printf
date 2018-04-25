@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/19 17:17:23 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/25 11:12:03 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_else.c				\
 			  ft_pointer.c			\
 			  ft_char.c				\
+			  ft_wchar.c			\
 			  ft_strpadding.c		\
 			  ft_charpadding.c		\
 			  ft_flag.c			

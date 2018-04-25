@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/22 12:56:26 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/25 14:53:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char				*ft_maxioctal(va_list *arg, t_opt *opt);
 char				*ft_minihexa(va_list *arg, t_opt *opt);
 char				*ft_maxihexa(va_list *arg, t_opt *opt);
 char				*ft_else(va_list *arg, t_opt *opt);
+
+int					ft_getwint(wint_t c, char res[]);
 
 int					is_converter(char c);
 char				*convert(va_list *arg, char c, char *flags, t_opt *opt);
