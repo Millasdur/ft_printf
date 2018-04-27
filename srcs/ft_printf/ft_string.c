@@ -6,22 +6,25 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 17:35:25 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/25 17:51:46 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/27 16:59:12 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		handle_cs(char **res, wchar_t c, t_opt *opt)
+int			handle_cs(char **res, wchar_t c, t_opt *opt)
 {
 	int		len;
 	char	tmp[5];
 
 	ft_bzero(tmp, 5);
 	len = ft_getwint(c, tmp);
+	if (len == -1)
+		return (-1);
 	if (opt->preci == -1 ||
 			(opt->preci >= 0 && (int)ft_strlen(*res) + len <= opt->preci))
 		*res = ft_strjoindel(*res, tmp);
+	return (0);
 }
 
 char		*ft_bigstring(va_list *arg, t_opt *opt)
@@ -43,7 +46,8 @@ char		*ft_bigstring(va_list *arg, t_opt *opt)
 	{
 		while (str && *str)
 		{
-			handle_cs(&res, *str, opt);
+			if (handle_cs(&res, *str, opt) == -1)
+				return (NULL);
 			str++;
 		}
 	}

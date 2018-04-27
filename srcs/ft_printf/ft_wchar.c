@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:10:06 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/25 17:10:17 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/27 16:50:58 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ int		ft_w4(wchar_t c, char res[])
 	res[3] = (c & 0x3F) | (0x80);
 	res[2] = ((c >> 6) & 0x3F) | (0x80);
 	res[1] = ((c >> 12) & 0x3F) | (0x80);
-	res[0] = (c >> 16) | (0xF0);
+	res[0] = (c >> 18) | (0xF0);
 	return (1);
 }
 
 int		ft_getwint(wchar_t c, char res[])
 {
-	if (c <= 0x7F)
+	if ((c >= 0xD800 && c <= 0xDFFF) || (c > 0xD7FF && c < 0xE000) ||
+			c < 0 || c == 256)
+		return (-1);
+	if (c <= 255)
 		return (ft_w1(c, res));
 	else if (c <= 0x7FF)
 		return (ft_w2(c, res));

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag.c                                          :+:      :+:    :+:   */
+/*   ft_binary.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 13:22:27 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/26 10:10:51 by hlely            ###   ########.fr       */
+/*   Created: 2018/04/26 09:30:14 by hlely             #+#    #+#             */
+/*   Updated: 2018/04/26 09:35:05 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			get_flag(char *str, int flags)
+char	*ft_binary(va_list *arg, t_opt *opt)
 {
-	int		i;
+	uintmax_t	nb;
+	char		*res;
 
-	i = 0;
-	while (str[i] && !is_converter(str[i]))
+	nb = get_unumber(arg, *opt);
+	opt->flags ^= (nb == 0) ? (opt->flags & HASH) : 0;
+	res = ft_uitoa_base(nb, 2);
+	if (ft_strequ(res, "0") && opt->preci == 0)
 	{
-		flags |= (str[i] == '#') ? HASH : flags;
-		flags |= (str[i] == '+') ? PLUS : flags;
-		flags |= (str[i] == '-') ? MINUS : flags;
-		flags |= (str[i] == ' ') ? SPACE : flags;
-		i++;
+		ft_strdel(&res);
+		res = ft_strdup("");
 	}
-	return (flags);
+	ft_lowercase(&res);
+	res = handle_number_flag(res, opt, HEX);
+	opt->len2 = ft_strlen(res);
+	opt->len += ft_strlen(res);
+	return (res);
 }

@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/25 11:12:03 by hlely            ###   ########.fr        #
+#    Updated: 2018/04/26 09:33:53 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_converter.c	\
 			  ft_number.c		\
 			  ft_unumber.c		\
+			  ft_binary.c		\
 			  ft_octal.c		\
 			  ft_get_attr.c		\
 			  ft_padding.c		\

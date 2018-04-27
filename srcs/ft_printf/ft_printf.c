@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/25 17:26:40 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/27 16:33:28 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_function	g_function[] =
 	{'u', &ft_uint},
 	{'U', &ft_umaxiint},
 	{'%', &ft_percent},
+	{'b', &ft_binary},
 	{0, NULL}
 };
 
@@ -36,7 +37,7 @@ int			is_attr(char c)
 {
 	char	*tmp;
 
-	tmp = "0123456789.-+ #lhjz";
+	tmp = "0123456789.-+* #lhjz";
 	if (ft_strchr(tmp, c) != NULL)
 		return (1);
 	return (0);
@@ -59,17 +60,25 @@ char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
 {
 	int		j;
 	char	*tmp;
+	char	*tmp2;
 
 	tmp = ft_strsub(*str, 0, opt->i);
-	res = ft_strnjoinddel(res, tmp, opt->len, ft_strlen(tmp));
+	opt->len_tmp = opt->len;
 	opt->len += opt->i;
 	*str += opt->i + 1;
 	opt->i = 0;
 	j = opt->i;
 	while ((*str)[opt->i] && is_attr((*str)[opt->i]))
 		(opt->i)++;
-	tmp = convert(arg, (*str)[opt->i], *str + j, opt);
-	res = ft_strnjoinddel(res, tmp, opt->len - opt->len2, opt->len2);
+	tmp2 = convert(arg, (*str)[opt->i], *str + j, opt);
+	if (tmp2 == NULL)
+	{
+		ft_putnstr(res, opt->len);
+		ft_strdel(&res);
+		return (NULL);
+	}
+	res = ft_strnjoinddel(res, tmp, opt->len_tmp, ft_strlen(tmp));
+	res = ft_strnjoinddel(res, tmp2, opt->len - opt->len2, opt->len2);
 	*str += opt->i;
 	if ((*str)[0])
 		(*str)++;
@@ -86,6 +95,7 @@ int			ft_printf(char *str, ...)
 	opt.i = 0;
 	opt.len = 0;
 	opt.len2 = 0;
+	opt.len_tmp = 0;
 	opt.positive = 1;
 	va_start(arg, str);
 	res = ft_strdup("");

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 12:09:26 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/22 14:37:59 by hlely            ###   ########.fr       */
+/*   Updated: 2018/04/26 09:57:12 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ char		*convert(va_list *arg, char c, char *flags, t_opt *opt)
 	{
 		if (g_function[j].value == c)
 		{
-			get_attr(flags, opt);
+			get_attr(arg, flags, opt);
 			return (g_function[j].f(arg, opt));
 		}
 		j++;
 	}
-	get_attr(flags, opt);
+	get_attr(arg, flags, opt);
 	return (ft_else(arg, opt));
 }
