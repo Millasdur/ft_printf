@@ -39,8 +39,25 @@ static int	get_len(char *src, t_opt opt, int type)
 	if ((opt.flags & HASH) && (((type == HEX || type == MHEX)
 					&& !ft_strequ(src, "0")) || type == POINT))
 		len -= 2;
-	if ((opt.flags & HASH) && type == OCT && !ft_strequ(src, "0"))
-		len -= 1;
+	/* if (((opt.flags & HASH) && type == OCT && !ft_strequ(src, "0")) */
+	/* 			|| (opt.flags & MINUS && opt.preci != -1)) */
+	/* { */
+	/* 	len -= 1; */
+	/* } */
+	if (opt.flags & HASH && type == OCT)
+	{
+		if (opt.flags & MINUS)
+		{
+			if (opt.charac >= opt.preci)
+				len -= 1;
+		}
+		else if (opt.preci >= 0 && opt.charac >= opt.preci)
+				len -= 1;
+		else if (opt.preci == 0 && opt.zero)
+			len -= 1;
+		else if (opt.preci == -1 && !opt.zero)
+			len -= 1;
+	}
 	if ((opt.flags & PLUS) || (opt.flags & SPACE))
 		len -= 1;
 	return (len);

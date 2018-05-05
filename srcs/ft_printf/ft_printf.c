@@ -43,17 +43,16 @@ int			is_attr(char c)
 	return (0);
 }
 
-char		*ft_percent(va_list *arg, t_opt *opt)
+static t_opt	setup_struct(void)
 {
-	char	*res;
+	t_opt	opt;
 
-	(void)arg;
-	res = ft_strdup("%");
-	opt->preci = -1;
-	res = handle_strflag(res, *opt);
-	opt->len2 = ft_strlen(res);
-	opt->len += ft_strlen(res);
-	return (res);
+	opt.i = 0;
+	opt.len = 0;
+	opt.len2 = 0;
+	opt.len_tmp = 0;
+	opt.positive = 1;
+	return (opt);
 }
 
 char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
@@ -92,11 +91,7 @@ int			ft_printf(char *str, ...)
 	va_list	arg;
 	t_opt	opt;
 
-	opt.i = 0;
-	opt.len = 0;
-	opt.len2 = 0;
-	opt.len_tmp = 0;
-	opt.positive = 1;
+	opt = setup_struct();
 	va_start(arg, str);
 	res = ft_strdup("");
 	while (str && str[(opt.i)])
@@ -122,8 +117,7 @@ int			ft_printf_fd(int fd, char *str, ...)
 	va_list	arg;
 	t_opt	opt;
 
-	opt.i = 0;
-	opt.len = 0;
+	opt = setup_struct();
 	va_start(arg, str);
 	res = ft_strdup("");
 	while (str[opt.i])

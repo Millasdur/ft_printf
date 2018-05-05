@@ -39,7 +39,7 @@ int		ft_w4(wchar_t c, char res[])
 	res[2] = ((c >> 6) & 0x3F) | (0x80);
 	res[1] = ((c >> 12) & 0x3F) | (0x80);
 	res[0] = (c >> 18) | (0xF0);
-	return (1);
+	return (4);
 }
 
 int		ft_getwint(wchar_t c, char res[])

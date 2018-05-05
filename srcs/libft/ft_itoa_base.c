@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	nb_n(intmax_t value, int base)
+int			nb_n(intmax_t value, int base)
 {
 	int i;
 

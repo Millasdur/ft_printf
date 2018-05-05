@@ -81,6 +81,7 @@ char				*ft_binary(va_list *arg, t_opt *opt);
 char				*ft_else(va_list *arg, t_opt *opt);
 
 int					ft_getwint(int c, char res[]);
+int					nblen(intmax_t nb);
 
 int					is_converter(char c);
 char				*convert(va_list *arg, char c, char *flags, t_opt *opt);

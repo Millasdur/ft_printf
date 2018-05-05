@@ -18,6 +18,8 @@ AR = ar rc
 PRINTF_NAME = ft_printf.c		\
 			  ft_converter.c	\
 			  ft_number.c		\
+			  ft_percent.c		\
+			nblen.c			\
 			  ft_unumber.c		\
 			  ft_binary.c		\
 			  ft_octal.c		\
@@ -40,8 +42,6 @@ SRC = $(addprefix $(PRINTF_PATH), $(PRINTF_NAME))
 ### LIBFT ###
 LIB_NAME = ft_putchar.c\
 		   ft_epur.c\
-		   ft_puterr.c\
-		   ft_puterrnl.c\
 		   ft_realloc.c\
 		   ft_swapstr.c\
 		   ft_nb_word.c\

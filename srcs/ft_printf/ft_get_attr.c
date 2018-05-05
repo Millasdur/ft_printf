@@ -46,17 +46,25 @@ static int	get_width(va_list *arg, char *str, t_opt *opt)
 	int		width;
 
 	i = 0;
-	while (str[i] && !is_converter(str[i]) && str[i] != '.' && str[i] != '*'
-			&& (!ft_isdigit(str[i]) || str[i] == '0'))
-		i++;
-	if (str[i] == '*')
+	width = 0;
+	while (str[i] && !is_converter(str[i]) && str[i] != '.')
 	{
-		width = va_arg(*arg, int);
-		opt->flags |= (width < 0) ? MINUS : opt->flags;
-		width = ft_abs(width);
+		if (str[i] == '*')
+		{
+			width = va_arg(*arg, int);
+			opt->flags |= (width < 0) ? MINUS : opt->flags;
+			width = ft_abs(width);
+			i++;
+		}
+		else if (ft_isdigit(str[i]) || str[i] == '0')
+		{
+			width = ft_atoi(str + i);
+			while (str[i] && !is_converter(str[i]) && ft_isdigit(str[i]))
+				i++;
+		}
+		else
+			i++;
 	}
-	else
-		width = ft_atoi(str + i);
 	return (width);
 }
 
