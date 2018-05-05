@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 17:35:25 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/27 16:59:12 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 07:46:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			handle_cs(char **res, wchar_t c, t_opt *opt)
 {
 	int		len;
-	char	tmp[5];
+	unsigned char	tmp[5];
 
 	ft_bzero(tmp, 5);
 	len = ft_getwint(c, tmp);
@@ -23,7 +23,7 @@ int			handle_cs(char **res, wchar_t c, t_opt *opt)
 		return (-1);
 	if (opt->preci == -1 ||
 			(opt->preci >= 0 && (int)ft_strlen(*res) + len <= opt->preci))
-		*res = ft_strjoindel(*res, tmp);
+		*res = ft_strjoindel(*res, (char*)tmp);
 	return (0);
 }
 
