@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 17:35:25 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 09:17:19 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 11:20:22 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,30 @@ int			handle_cs(char **res, wchar_t c, t_opt *opt)
 	if (opt->preci == -1 ||
 			(opt->preci >= 0 && (int)ft_strlen(*res) + len <= opt->preci))
 		*res = ft_strjoindel(*res, (char*)tmp);
+	if (opt->preci >= 0 && (int)ft_strlen(*res) + len > opt->preci)
+		return (-2);
 	return (0);
+}
+
+int			loop_str(char **res, wchar_t *str, t_opt *opt)
+{
+	int		tmp;
+
+	while (str && *str)
+	{
+		tmp = handle_cs(res, *str, opt);
+		if (tmp == -1)
+			return (0);
+		if (tmp == -2)
+			break ;
+		str++;
+	}
+	return (1);
 }
 
 char		*ft_bigstring(va_list *arg, t_opt *opt)
 {
+	int		tmp;
 	wchar_t	*str;
 	char	*res;
 
@@ -42,12 +61,9 @@ char		*ft_bigstring(va_list *arg, t_opt *opt)
 		opt->len += ft_strlen(res);
 		return (res);
 	}
-	while (str && *str)
-	{
-		if (handle_cs(&res, *str, opt) == -1)
-			return (NULL);
-		str++;
-	}
+	tmp = loop_str(&res, str, opt);
+	if (!tmp)
+		return (NULL);
 	res = handle_strwidth(res, *opt);
 	opt->len2 = ft_strlen(res);
 	opt->len += opt->len2;

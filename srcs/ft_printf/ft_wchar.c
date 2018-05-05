@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:10:06 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 10:01:43 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 11:20:35 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int		ft_w4(int c, unsigned char res[])
 	return (-1);
 }
 
-int		ft_getwint(int c, unsigned char res[])
+int		ft_getwint(unsigned int c, unsigned char res[])
 {
 	if ((c >= 0xD800 && c <= 0xDFFF) || (c > 0xD7FF && c < 0xE000) ||
-			c < 0 || c == 256)
+			c == 0xbffe || c == 256)
 		return (-1);
 	if (c <= 127)
 		return (ft_w1(c, res));
