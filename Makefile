@@ -6,7 +6,7 @@
 #    By: hlely <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:17:54 by hlely             #+#    #+#              #
-#    Updated: 2018/04/26 09:33:53 by hlely            ###   ########.fr        #
+#    Updated: 2018/05/05 08:54:31 by hlely            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_converter.c	\
 			  ft_number.c		\
 			  ft_percent.c		\
-			nblen.c			\
+			  nblen.c			\
 			  ft_unumber.c		\
 			  ft_binary.c		\
 			  ft_octal.c		\
@@ -33,6 +33,9 @@ PRINTF_NAME = ft_printf.c		\
 			  ft_pointer.c			\
 			  ft_char.c				\
 			  ft_wchar.c			\
+			  conv31.c				\
+			  conv32.c				\
+			  conv4.c				\
 			  ft_strpadding.c		\
 			  ft_charpadding.c		\
 			  ft_flag.c			

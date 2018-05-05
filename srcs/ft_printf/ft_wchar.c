@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:10:06 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 07:57:45 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 09:01:06 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,93 +28,36 @@ int		ft_w2(int c, unsigned char res[])
 int		ft_w3(int c, unsigned char res[])
 {
 	if (c >= 0x800 && c <= 0xFFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x1F) | 0xA0;
-		res[0] = 0xE0;
-	}
+		return (conv31(c, res));
 	if (c >= 0x1000 && c <= 0x1FFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = 0xE1;
-	}
+		return (conv32(c, res));
 	if (c >= 0x2000 && c <= 0x3FFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = ((c >> 12) & 0x1) | 0xE2;
-	}
+		return (conv33(c, res));
 	if (c >= 0x4000 && c <= 0x7FFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = ((c >> 12) & 0x3) | 0xE4;
-	}
+		return (conv34(c, res));
 	if (c >= 0x8000 && c <= 0xBFFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = ((c >> 12) & 0x3) & 0xE8;
-	}
+		return (conv35(c, res));
 	if (c >= 0xC000 && c <= 0xCFFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = 0xEC;
-	}
+		return (conv36(c, res));
 	if (c >= 0xD000 && c <= 0xD7FF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x1F) | 0x9F;
-		res[0] = 0xED;
-	}
+		return (conv37(c, res));
 	if (c >= 0xE000 && c <= 0xFFFF)
-	{
-		res[2] = (c & 0x3F) | (0x80);
-		res[1] = ((c >> 6) & 0x3F) | 0x80;
-		res[0] = ((c >> 12) & 0x1) | 0xEE;
-	}
+		return (conv38(c, res));
 	return (3);
 }
 
 int		ft_w4(int c, unsigned char res[])
 {
 	if (c >= 0x10000 && c <= 0x1FFFF)
-	{
-		res[3] = (c & 0x3F) | (0x80);
-		res[2] = ((c >> 6) & 0x3F) | 0x80;
-		res[1] = ((c >> 12) & 0xF) | 0x90;
-		res[0] = 0xF0;
-	}
+		return (conv41(c, res));
 	if (c >= 0x20000 && c <= 0x3FFFF)
-	{
-		res[3] = (c & 0x3F) | (0x80);
-		res[2] = ((c >> 6) & 0x3F) | 0x80;
-		res[1] = ((c >> 12) & 0x1F) | 0xA0;
-		res[0] = 0xF0;
-	}
+		return (conv42(c, res));
 	if (c >= 0x40000 && c <= 0x7FFFF)
-	{
-		res[3] = (c & 0x3F) | (0x80);
-		res[2] = ((c >> 6) & 0x3F) | 0x80;
-		res[1] = ((c >> 12) & 0x3F) | 0x80;
-		res[0] = 0xF1;
-	}
+		return (conv43(c, res));
 	if (c >= 0x80000 && c <= 0xFFFFF)
-	{
-		res[3] = (c & 0x3F) | (0x80);
-		res[2] = ((c >> 6) & 0x3F) | 0x80;
-		res[1] = ((c >> 12) & 0x3F) | 0x80;
-		res[0] = ((c >> 18) & 0x1) | 0xF2;
-	}
+		return (conv44(c, res));
 	if (c >= 0x100000 && c <= 0x10FFFF)
-	{
-		res[3] = (c & 0x3F) | (0x80);
-		res[2] = ((c >> 6) & 0x3F) | 0x80;
-		res[1] = ((c >> 12) & 0xF) | 0x80;
-		res[0] = 0xF4;
-	}
+		return (conv45(c, res));
 	return (4);
 }
 

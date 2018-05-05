@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 19:31:40 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 07:04:08 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 09:14:15 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char		*handle_lc(int c, t_opt *opt)
 {
-	int		len;
+	int				len;
 	unsigned char	tmp[5];
-	char	*res;
+	char			*res;
 
 	if (c == 0)
 	{

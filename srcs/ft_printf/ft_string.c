@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 17:35:25 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 07:46:06 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 09:17:19 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			handle_cs(char **res, wchar_t c, t_opt *opt)
 {
-	int		len;
+	int				len;
 	unsigned char	tmp[5];
 
 	ft_bzero(tmp, 5);
@@ -42,14 +42,11 @@ char		*ft_bigstring(va_list *arg, t_opt *opt)
 		opt->len += ft_strlen(res);
 		return (res);
 	}
-	else
+	while (str && *str)
 	{
-		while (str && *str)
-		{
-			if (handle_cs(&res, *str, opt) == -1)
-				return (NULL);
-			str++;
-		}
+		if (handle_cs(&res, *str, opt) == -1)
+			return (NULL);
+		str++;
 	}
 	res = handle_strwidth(res, *opt);
 	opt->len2 = ft_strlen(res);

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 09:55:29 by hlely             #+#    #+#             */
-/*   Updated: 2018/04/27 16:33:28 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 09:20:58 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_function	g_function[] =
 	{0, NULL}
 };
 
-int			is_attr(char c)
+int				is_attr(char c)
 {
 	char	*tmp;
 
@@ -55,7 +55,8 @@ static t_opt	setup_struct(void)
 	return (opt);
 }
 
-char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
+char			*prepare_convertion(va_list *arg,
+		char **str, t_opt *opt, char *res)
 {
 	int		j;
 	char	*tmp;
@@ -79,13 +80,12 @@ char		*prepare_convertion(va_list *arg, char **str, t_opt *opt, char *res)
 	res = ft_strnjoinddel(res, tmp, opt->len_tmp, ft_strlen(tmp));
 	res = ft_strnjoinddel(res, tmp2, opt->len - opt->len2, opt->len2);
 	*str += opt->i;
-	if ((*str)[0])
-		(*str)++;
+	(*str)[0] ? (*str)++ : 0;
 	opt->i = 0;
 	return (res);
 }
 
-int			ft_printf(char *str, ...)
+int				ft_printf(char *str, ...)
 {
 	char	*res;
 	va_list	arg;
@@ -111,7 +111,7 @@ int			ft_printf(char *str, ...)
 	return (opt.len);
 }
 
-int			ft_printf_fd(int fd, char *str, ...)
+int				ft_printf_fd(int fd, char *str, ...)
 {
 	char	*res;
 	va_list	arg;

@@ -6,7 +6,7 @@
 /*   By: hlely <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:26:19 by hlely             #+#    #+#             */
-/*   Updated: 2018/05/05 07:03:43 by hlely            ###   ########.fr       */
+/*   Updated: 2018/05/05 09:03:50 by hlely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,19 @@ uintmax_t			get_unumber(va_list *arg, t_opt opt);
 
 char				*handle_strflag(char *src, t_opt opt);
 char				*handle_charflag(char *src, t_opt opt, int len);
+
+int					conv41(int c, unsigned char res[]);
+int					conv42(int c, unsigned char res[]);
+int					conv43(int c, unsigned char res[]);
+int					conv44(int c, unsigned char res[]);
+int					conv45(int c, unsigned char res[]);
+
+int					conv31(int c, unsigned char res[]);
+int					conv32(int c, unsigned char res[]);
+int					conv33(int c, unsigned char res[]);
+int					conv34(int c, unsigned char res[]);
+int					conv35(int c, unsigned char res[]);
+int					conv36(int c, unsigned char res[]);
+int					conv37(int c, unsigned char res[]);
+int					conv38(int c, unsigned char res[]);
 #endif
